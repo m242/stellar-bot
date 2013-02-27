@@ -1,0 +1,55 @@
+@(c: String, twitterName: Option[String], stellarName: Option[String])
+
+<div id="container-@c" class="container">
+    <div class="row">
+        <div id="step1" class="span4 offset1">
+            <img id="twitterImg" src="/assets/images/twitter.jpg">
+
+            <h3>@twitterName.map { s => <em class="icon icon-ok"></em> }
+                Step 1: Create a Twitter account for your Stellar bot, THEN</h3>
+            @twitterName match {
+                case None => {
+                    <a id="signin" href="/auth" class="btn btn-block btn-large btn-info"><em class="icon icon-twitter"></em>
+                    Sign In With Twitter</a>
+                }
+                case Some(name) => {
+                    <img id="profileImg" src="https://api.twitter.com/1/users/profile_image?screen_name=@name&size=bigger" width="40" height="40">
+                    <span id="twitterName">@@@name</span> <a id="signout" href="/signout" class="btn btn-info btn-small">Sign Out</a>
+                }
+            }
+        </div>
+        <div id="robot" class="span2">
+            <img id="robotImg" src="/assets/images/robotw.png" width="100" height="100">
+        </div>
+        <div id="step2" class="span4">
+            <img id="stellarImg" src="/assets/images/stellar.jpg">
+
+            <h3>@stellarName.map { s => <em class="icon icon-ok"></em> }
+                Step 2: Enter your Stellar username.</h3>
+
+            <div id="stellarLoc">
+                @stellarName match {
+                    case None => {
+                        <form id="stellarForm" method="POST" action="/stellar">
+                        <input id="stellarNameInput" type="text" name="stellarName" value="" class="input-block-level" placeholder="Example: mark242" autocapitalize="off" autocomplete="off">
+                        <button id="addBtn" class="btn btn-info btn-block btn-large"><em class="icon icon-plus-sign"></em>
+                            Activate Stellar Bot
+                        </button>
+                        <div id="postSuccess" class="alert alert-block alert-success">Your Stellar bot has activated.</div>
+                        </form>
+                    }
+                    case Some(s) => {
+                        <div id="delete">
+                            <h4>stellar.io/@s</h4>
+                            <a id="deleteBtn" href="/" class="btn btn-large btn-inverse btn-block">
+                                <em class="icon icon-off"></em>
+                                Deactivate Stellar Bot
+                            </a>
+                            <div id="deleteSuccess" class="alert alert-block alert-success">Your Stellar bot has deactivated.</div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

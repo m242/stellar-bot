@@ -1,0 +1,459 @@
+.radius(@px) {
+    -webkit-border-radius: @px;
+    -moz-border-radius: @px;
+    border-radius: @px;
+}
+
+.shadow(@def) {
+    -webkit-box-shadow: @def;
+    -moz-box-shadow: @def;
+    box-shadow: @def;
+}
+
+.robotmove-anim() {
+    0% { left: 130px; }
+    70% { left: -130px; }
+    100% { left: -130px; }
+}
+
+.fadeinout-anim() {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.robotmove-class(@count) {
+    -webkit-animation-name: robotmove;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-iteration-count: @count;
+    -moz-animation-name: robotmove;
+    -moz-animation-duration: 4s;
+    -moz-animation-iteration-count: @count;
+    animation-name: robotmove;
+    animation-duration: 4s;
+    animation-iteration-count: @count;
+}
+
+.fadeinout-class(@count) {
+    -webkit-animation-name: fadeinout;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: @count;
+    -moz-animation-name: fadeinout;
+    -moz-animation-duration: 1s;
+    -moz-animation-iteration-count: @count;
+    animation-name: fadeinout;
+    animation-duration: 1s;
+    animation-iteration-count: @count;
+}
+
+.robotmove-enabled {
+    .robotmove-class(infinite);
+}
+
+.fadeinout-enabled {
+    .fadeinout-class(infinite);
+}
+
+@-webkit-keyframes robotmove { .robotmove-anim; }
+@-moz-keyframes robotmove { .robotmove-anim; }
+@keyframes robotmove { .robotmove-anim; }
+
+@-webkit-keyframes fadeinout { .fadeinout-anim; }
+@-moz-keyframes fadeinout { .fadeinout-anim; }
+@keyframes fadeinout { .fadeinout-anim; }
+
+html {
+    min-height: 100%;
+}
+
+body {
+    font-family: proxima-nova, helvetica, sans-serif;
+    color: #f3f3f3;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    background-image: -ms-linear-gradient(top, #177299 0%, #A5D6EF 100%);
+    background-image: -moz-linear-gradient(top, #177299 0%, #A5D6EF 100%);
+    background-image: -o-linear-gradient(top, #177299 0%, #A5D6EF 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #177299), color-stop(1, #A5D6EF));
+    background-image: -webkit-linear-gradient(top, #177299 0%, #A5D6EF 100%);
+    background-image: linear-gradient(to bottom, #177299 0%, #A5D6EF 100%);
+    background-color: #4895b7;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100%;
+}
+
+a {
+    color: #06b;
+}
+
+input, textarea, input[type="text"] {
+    font-family: proxima-nova, helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+
+
+h3 {
+    font-family: proxima-nova;
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-image: none;
+    .shadow(0px 1px 5px rgba(0, 0, 0, 0.1));
+    //-webkit-box-shadow: none;
+    //-moz-box-shadow: none;
+    //box-shadow: none;
+}
+
+.btn-info {
+    font-family: "proxima-nova",sans-serif;
+    // border-color: #49afcd;
+    border-color: #399fbd;
+    &:hover {
+        border-color: #1f86a4;
+    }
+}
+
+.btn-inverse {
+    font-family: "proxima-nova", sans-serif;
+    background-color: #666666;
+    &:hover {
+        background-color: #444444;
+        border-color: #222222;
+    }
+}
+
+.btn-block {
+    font-family: "proxima-nova",sans-serif;
+    font-size: 24px;
+    .icon {
+        margin-right: 10px;
+    }
+    &:hover {
+        border-color: #1f86a4;
+    }
+}
+
+.btn-small {
+    text-transform: uppercase;
+}
+
+
+#title {
+    text-align: center;
+    padding: 40px 0 20px;
+    #stellar {
+        font-family: bebas-neue;
+        font-weight: 400;
+        font-size: 48px;
+        display: inline-block;
+        background-image: url(/assets/images/plaid.png);
+        padding: 10px 10px 6px;
+        margin-right: 4px;
+        letter-spacing: 1px;
+        .radius(4px);
+    }
+    #bot {
+        font-family: proxima-nova, helvetica, sans-serif;
+        font-weight: 100;
+        color: #aaaacc;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: -1px;
+        font-size: 48px;
+    }
+}
+
+#tagline, #tagline-signout, #tagline-notfound {
+    font-weight: 100;
+    font-size: 30px;
+    color: #dddddd;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#tagline-signout, #tagline-notfound {
+    color: #eeeeee;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#container-home {
+    #step2 {
+        opacity: 0.5;
+        #stellarForm {
+            display: none;
+        }
+    }
+}
+
+#robot {
+    text-align: center;
+    #robotImg {
+        opacity: 0.4;
+        margin-top: 50px;
+        position: relative;
+        left: 0px;
+        z-index: -1;
+        // 130px to -130px
+    }
+}
+
+#twitterImg, #stellarImg {
+    .radius(6px);
+    margin-bottom: 10px;
+}
+
+#container-loggedin {
+    #twitterName {
+        font-size: 20px;
+    }
+    .btn-small {
+        margin-left: 8px;
+        margin-bottom: 4px;
+    }
+    .icon-ok {
+        opacity: 0.6;
+    }
+    h4 {
+        font-size: 20px;
+        font-weight: 300;
+        text-align: center;
+        padding-top: 4px;
+        margin-bottom: 20px;
+    }
+    .error {
+        margin-bottom: 4px;
+    }
+    #stellarNameInput {
+        .radius(6px);
+        padding: 12px 20px 12px 12px;
+        color: #333;
+        .shadow(inset 0 1px 1px rgba(0, 0, 0, 0.1));
+        font-family: proxima-nova, helvetica, sans-serif;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 30px;
+        min-height: 45px;
+        &::-webkit-input-placeholder {
+            font-weight: 100;
+        }
+        &:moz-placeholder {
+            font-weight: 100;
+            color: rgba(0, 0, 0, 0.4);
+        }
+        &:-moz-placeholder {
+            font-weight: 100;
+            color: rgba(0, 0, 0, 0.4);
+        }
+        &:ms-input-placeholder {
+            font-weight: 100;
+            color: rgba(0, 0, 0, 0.4);
+        }
+    }
+    #postSuccess, #deleteSuccess {
+        display: none;
+        text-align: center;
+        font-size: 18px;
+        padding: 12px 0;
+        margin: 0;
+        margin-bottom: 1px;
+        background-color: #444;
+        background-color: rgba(0, 0, 0, 0.7);
+        border: none;
+        color: #fff;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    }
+}
+
+#profileImg {
+    .radius(4px);
+    margin-right: 8px;
+}
+
+#container-signout, #container-notfound {
+    #robot {
+        #robotImg {
+            margin-top: 0;
+        }
+    }
+}
+
+#switchAcct {
+    text-align: center;
+    color: #dddddd;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#row-notfound {
+    margin-top: 40px;
+    text-align: center;
+}
+
+
+#footer {
+    font-size: 14px;
+    margin-bottom: 28px;
+    .span6 {
+        margin-top: 56px;
+        padding-top: 28px;
+        border-top: solid 1px #ccccdd;
+        iframe {
+            margin-top: 2px;
+        }
+        #created {
+            vertical-align: top;
+            display: inline-block;
+            margin-right: 10px;
+            #mark {
+                vertical-align: top;
+            }
+        }
+    }
+}
+
+
+
+// Internet Explorer 9 and 8
+
+html.ie9, html.lt-ie9 {
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#177299', endColorstr='#A5D6EF');
+    #profileImg {
+        width: 40px;
+        height: 40px;
+    }
+    #container-loggedin {
+        #stellarNameInput {
+            padding-top: 6px;
+        }
+    }
+}
+
+html.lt-ie9 {
+    #container-loggedin {
+        #stellarNameInput {
+            padding-bottom: 0;
+            min-height: 40px;
+        }
+    }
+}
+
+
+
+// Portrait tablet to landscape and desktop
+@media (min-width: 768px) and (max-width: 979px) {
+    h3, #tagline, #tagline-signout, #tagline-notfound {
+        font-weight: 300;
+    }
+    #step1 {
+        width: 290px;
+        margin-left: 20px;
+    }
+    #step2 {
+        width: 290px;
+    }
+    #footer {
+        .span6 {
+            width: 460px;
+        }
+        .offset3 {
+            margin-left: 160px;
+        }
+    }
+}
+
+
+
+// Landscape phone to portrait tablet
+@media (max-width: 767px) {
+}
+
+
+
+// Landscape phones and down
+@media (max-width: 480px) {
+    h3 {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 10px;
+        font-weight: 300;
+    }
+    #title {
+        padding: 0;
+        padding-top: 8px;
+        #stellar {
+            font-size: 36px;
+            padding: 5px 8px 2px;
+        }
+        #bot {
+            font-size: 36px;
+        }
+    }
+    #tagline, #tagline-signout, #tagline-notfound {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 10px;
+        font-weight: 300;
+    }
+    #container-home {
+        #robot {
+            display: none;
+        }
+        #step2 {
+            display: none;
+        }
+    }
+    #container-loggedin {
+        #twitterImg {
+            display: none;
+        }
+        #robot {
+            display: none;
+        }
+        #stellarImg {
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+        #stellarForm {
+            margin-bottom: 0;
+        }
+    }
+    #switchAcct {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    #row-notfound {
+        margin-top: 10px;
+    }
+    #footer {
+        text-align: center;
+        margin-bottom: 14px;
+        .span6 {
+            margin-top: 28px;
+            padding-top: 14px;
+        }
+        .twitter-follow-button {
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .twitter-share-button {
+            display: block;
+            margin: 0 auto;
+            padding-left: 20px;
+        }
+        .pull-right {
+            float: none;
+        }
+    }
+}

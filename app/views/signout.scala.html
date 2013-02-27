@@ -1,0 +1,22 @@
+@()(implicit request: RequestHeader)
+
+@template("Sign Out | Stellar Bot") {
+
+<h2 id="tagline-signout">You've signed out. Thanks for coming!</h2>
+
+<div id="container-signout" class="container">
+    <div class="row">
+        <div id="robot" class="span2 offset5">
+            <img id="robotImg" src="/assets/images/robotw.png" width="100" height="100">
+        </div>
+    </div>
+    <div class="row">
+        <div class="span6 offset3">
+            <h3 id="switchAcct">Want to switch accounts?<br>You may need to sign out of your <a href="http://twitter.com/">Twitter account</a>.</h3>
+            <a id="signin" href="/auth" class="btn btn-block btn-large btn-info"><em class="icon icon-twitter"></em>
+                Sign In Again</a>
+        </div>
+    </div>
+</div>
+
+}
